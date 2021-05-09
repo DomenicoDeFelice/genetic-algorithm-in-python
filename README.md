@@ -2,5 +2,5 @@
 
 A Genetic Algorithm in Python, for didactic purpose.
 
-![Demo](blob/main/demo.gif?raw=true)
+![Demo](demo.gif?raw=true)
 
