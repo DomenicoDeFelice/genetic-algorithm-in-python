@@ -1,2 +1,6 @@
-# genetic-algorithm-in-python
-A genetic algorithm written in Python for didactic purpose
+# Genea: A Genetic Algorithm in Python
+
+A Genetic Algorithm in Python, for didactic purpose.
+
+![Demo](blob/main/demo.gif?raw=true)
+
