@@ -10,7 +10,7 @@ In the example below (default values in the source code), I'm using the English 
 
 In other words, the genetic algorithm starts from a pool of random strings, and make them converge towards my name.
 
-The source code is well documented.
+The [source code](genea.py) is well documented.
 
 Play with it and have fun!
 
