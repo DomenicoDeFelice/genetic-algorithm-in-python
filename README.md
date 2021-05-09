@@ -1,6 +1,6 @@
 # Genea: A Genetic Algorithm in Python
 
-[Genea](genea.py) is a [Genetic Algorithm](https://en.wikipedia.org/wiki/Genetic_algorithm) written in Python, for didactic purpose.
+[Genea](genea.py) is a [Genetic Algorithm](https://en.wikipedia.org/wiki/Genetic_algorithm) written in Python, for educational purposes.
 
 I started writing it for fun, while learning more about how genetic algorithms work.
 
