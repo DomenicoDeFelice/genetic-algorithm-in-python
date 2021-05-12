@@ -32,30 +32,6 @@ import time
 import typing as t
 
 
-def make_chromosome_fitness_function(target_chromosome: str) -> t.Callable[[str], float]:
-    """
-    Returns a fitness function that given a chromosome (a string of genes, from
-    a specified genes alphabet) returns a fitness score that is higher the closer
-    the chromosome is to the specified target chromosome.
-    """
-    def fitness_function(chromosome: str) -> float:
-        score = len(target_chromosome) - hamming_distance(chromosome, target_chromosome)
-
-        # Let the score grow exponentially, to accelerate
-        # the convergence towards better solutions.
-        return score ** 10
-
-    return fitness_function
-
-
-def hamming_distance(a: str, b: str) -> int:
-    """
-    Returns the hamming distance between strings a and b.
-    """
-    assert len(a) == len(b), "Strings must have the same length."
-    return sum(1 if a[i] != b[i] else 0 for i in range(len(a)))
-
-
 def override_line(text: str) -> None:
     """
     Helper function to replace the current output line of text.
@@ -303,6 +279,35 @@ class NaturalSelectionExperiment:
 
     def gen_random_gene(self) -> str:
         return random.choice(self.genes_alphabet)
+
+
+def make_chromosome_fitness_function(target_chromosome: str) -> t.Callable[[str], float]:
+    """
+    Helper function that, given an ideal chromosome we want to target, returns a fitness
+    function that given a chromosome (a string of genes, from a specified genes alphabet)
+    returns a fitness score that is higher the closer the chromosome is to the specified
+    target chromosome.
+    """
+    def fitness_function(chromosome: str) -> float:
+        # How do we measure how close chromosome is to target_chromosome?
+        # Use the hamming distance between the two strings and subtract it from the
+        # chromosome length, to have a score between 0 and len(chromosome).
+        score = len(target_chromosome) - hamming_distance(chromosome, target_chromosome)
+
+        # Let the score grow exponentially, to accelerate the convergence towards better
+        # solutions.
+        return score ** 10
+
+    return fitness_function
+
+
+def hamming_distance(a: str, b: str) -> int:
+    """
+    Returns the hamming distance between strings a and b.
+    """
+    assert len(a) == len(b), "Strings must have the same length."
+    return sum(1 if a[i] != b[i] else 0 for i in range(len(a)))
+
 
 
 TARGET_STRING = "Domenico De Felice"
